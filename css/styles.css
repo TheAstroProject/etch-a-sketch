@@ -100,3 +100,215 @@ main {
     transform: translateX(30vh)
 }
 
+.buttons-container-top,
+.buttons-container-bottom {
+    align-items: center;
+    background-color: transparent;
+    display: flex;
+    height: max-content;
+    justify-content: space-around;
+    margin: 8px 0;
+    position: relative;
+    width: 70vh;
+    z-index: 10;
+}
+
+.buttons {
+    background-color: var(--primary-color);
+    border-radius: 8px;
+    border: solid 1px var(--tertiary-color);
+    color: var(--secondary-color);
+    cursor: pointer;
+    font-family: var(--font-family);
+    font-size: 2.5vh;
+    height: 4vh;
+    margin: 0 4-x;
+    min-height: max-content;
+    min-width: max-content;
+    padding: 4px 8px;
+    text-shadow: var(--text-shadow);
+    width: 7vw;
+}
+
+.select-color-button {
+    line-height: 4vh;
+    text-align: center;
+}
+
+.select-color-button p {
+    padding: 0 4px;
+}
+
+.buttons:hover {
+    box-shadow: 0 0 2px var(--tertiary-color) inset;
+    filter: brightness(.95);
+    outline: none;
+}
+
+buttons.current,
+.buttons:focus {
+    box-shadow: 0 0 5px 1px var(--secondary-color);
+    outline: none;
+}
+
+.select-color-button {
+    height: 4vh;
+    padding: 0 0;
+    position: relative;
+    text-shadow: var(--text-shadow);
+}
+
+.color-picker {
+    cursor: pointer;
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.clear-button {
+    margin-left: 8px;
+}
+
+.slider-container { 
+    flex-grow: 1;
+    height: max-content;
+    margin: 0 16px;
+    position: relative;
+    width: 100%;
+}
+
+.slider {
+    -webkit-appearance: none;
+    background: lightgray;
+    border-radius: 5px;
+    border: solid 1px var(--tertiary-color);
+    flex-grow: 1;
+    height: 15px;
+    outline: none;
+    overflow: hidden;
+    width: 100%;
+}
+
+.slider:hover {
+    filter: brightness(0.95);
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    background: var(--secondary-color);
+    border-radius: 50%;
+    border: solid 1px var(--tertiary-color);
+    box-shadow: -5000px 0 0 4990px var(--primary-color);
+    cursor: pointer;
+    height: 25px;
+    width: 25px;
+}
+
+.slider::-moz-range-thumb {
+    background: var(--secondary-color);
+    border-radius: 50%;
+    border: solid 1px var(--tertiary-color);
+    cursor: pointer;
+    height: 25px;
+    width: 25px;
+}
+
+.slider::-moz-range-progress {
+    background: var(--primary-color);
+    height: 100%;
+}
+
+.slider::-ms-fill-lower {
+    background: var(--primary-color);
+    height: 100%;
+}
+
+.bubble {
+    background: var(--primary-color);
+    border-radius: 10px;
+    color: var(--secondary-color);
+    left: 50%;
+    padding: 4px 12px;
+    position: absolute;
+    text-shadow: var(--text-shadow);
+    transform: translateX(-50%);
+}
+
+.bubble::after {
+    background: var(--primary-color);
+    content: "";
+    height: 3px;
+    left: 50%;
+    position: absolute;
+    top: -2px;
+    width: 2px;
+}
+
+/* this is for my footer */
+footer {
+    align-items: center;
+    bottom: 0;
+    color: black;
+    display: flex;
+    font-family: sans-serif;
+    font-size: 18px;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 8px;
+    position: fixed;
+    width: 100%;
+}
+
+.fa-github {
+    color: black;
+    font-size: 20px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.fa-github:hover {
+    transform: rotate(360deg) scale(1.2);
+}
+
+@keyframes color-fade {
+    100% {
+        background-color: var(--screen-color);
+    }
+}
+
+@media only screen and (max-aspect-ratio: 1/1) {
+    .game-container {
+        height: 85vw;
+        width: 80vw;
+    }
+    .game-grid-container,
+    .game-grid-shadow {
+        height: 60vw;
+        width: 60vw;
+    }
+    .logo-image {
+        height: 8vw;
+        max-height: 9vh;
+        margin-top: 3vw;
+    }
+    .left-knob,
+    .right-knob {
+        height: 8vw;
+        margin-bottom: 3vw;
+        width: 8vw;
+    }
+    .left-knob {
+        transform: translateX(-33vw);
+    }
+    .right-knob {
+        transform: translateX(33vw);
+    }
+    .buttons-container-top,
+    .buttons-container-bottom {
+        height: max-content;
+        width: 80vw;
+    }
+}

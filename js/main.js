@@ -1,7 +1,7 @@
 //below will be all my const, and let variables
 const root = document.documentElement;
-const gameContainer = document.getElementById('gameGridContainer');
-const gameGridContainer = document.getElementById('gameGridShadow');
+const gameContainer = document.getElementById('gameContainer');
+const gameGridContainer = document.getElementById('gameGridContainer');
 const gameGridOverlay = document.getElementById('gameGridShadow');
 const slider = document.getElementById('slider');
 const bubble = document.getElementById('bubble');
@@ -19,7 +19,7 @@ let colorMode = 'blackButton';
 function makeGrid(gridSize = 16) {
     removeAllGridCells();
     root.style.setProperty('--grid-size', gridSize);
-    for(i = 0; i < (gridSize * gridSize); i++) {
+    for (i = 0; i < (gridSize * gridSize); i++) {
         let cell = document.createElement('div');
         gameGridContainer.appendChild(cell).className = 'grid-cell';
     }
@@ -36,15 +36,15 @@ function clearGrid() {
     clearButton.blur();
 
     gameContainer.classList.add('shake-horizontal');
-    gameContainer.addEventListener('animationend',function() {
+    gameContainer.addEventListener('animationend', function() {
         gameContainer.classList.remove('shake-horizontal');
     });
 
-    //im using an overlay div for a fade animation rather than individually fading each cell
+    //im using an overlay div for a fade animation rather than individually fading each cell 
     gameGridOverlay.classList.add('color-fade');
     gameGridOverlay.addEventListener('animationend', function() {
         makeGrid(slider.value);
-        gameGridOverlay.classList.remove('color-fade')
+        gameGridOverlay.classList.remove('color-fade');
     });
 }
 
@@ -75,11 +75,11 @@ function getColor() {
     if (colorMode === 'rainbowButton') return `#${Math.floor(Math.random()*16777215).toString(16)}`;
     if (colorMode === 'eraserButton') return 'transparent';
     if (colorMode === 'selectColorButton') return selectColorButton.value;
-    if (colorMode === 'greyScaleButton') return 'var(--screen-color)';
+    if (colorMode === 'greyscaleButton') return 'var(--screen-color)';
 }
 
 function getSliderValue() {
-    getSliderBubblePosition(slider, bubble);
+    setSliderBubblePosition(slider, bubble);
     makeGrid(slider.value);
 }
 
@@ -87,12 +87,12 @@ function setSliderBubblePosition(slider, bubble) {
     const val = slider.value;
     const min = slider.min ? slider.min : 2;
     const max = slider.max ? slider.max : 60;
-    const newVal = Number(((val - min) *100) / (max - min));
+    const newVal = Number(((val - min) * 100) / (max - min));
     bubble.innerText = slider.value;
     bubble.style.left = `calc(${newVal}% + (${8 - newVal * 0.15}px))`;
 }
 
-function setColorBackgroun() {
+function setColorButtonBackground() {
     selectColorButtonContainer.style.setProperty('background-color', selectColorButton.value);
 }
 

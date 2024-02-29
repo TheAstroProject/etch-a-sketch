@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
 }
-
+/* below is going to be my legend of colors,font, and text shadow */
 :root {
     --font-family: sans-serif;
     --grid-size: 16;
